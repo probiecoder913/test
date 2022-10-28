@@ -1,0 +1,55 @@
+<div class="content">
+   <div class="head">
+            <img src="./assets/img/logo.png" alt="" class="src">
+            <h1>
+                Pioneer Book Company Private Limited
+            </h1>
+    </div>
+    <div class="body">
+        <div class="magpage"> 
+            <div class="title title--big">
+                12 Issues ₹399 + Get ₹500 Gift coupon
+                <div class="title-underline"></div>
+            </div>
+        </div>
+        <form #paymentform="ngForm">
+            <h2>payment details</h2>
+            <div class="title-underline"></div>
+            <div class="form-entries">
+                <div class="amount-div">
+                    <label for="formamount">amount</label>
+                    <input type="text" value="₹399.00" readonly name="formamount">
+                </div>
+                <div class="name-div">
+                    <label for="formname">name</label>
+                    <div class="input">
+                        <input type="text" [required]="true" 
+                        [(ngModel)]="paymentform.formname" name="formname"> 
+                        <div *ngIf="paymentform.formname.invalid && (paymentform.formname.dirty || paymentform.formname.touched)"
+                                class="alert">
+                            <div *ngIf="formname.errors?.['required']">
+                                Name is required.
+                            </div>
+                            <div *ngIf="formname.errors?.['minlength']">
+                                Name must be at least 4 characters long.
+                            </div>
+                        </div>
+                        <p>apply HDFC offer on next page</p> 
+                    </div>    
+                </div>
+                <div class="phone-div">
+                    <label for="formphone">phone</label>
+                    <input type="text" [required]="true" [(ngModel)]="paymentform.formphone" name="formphone">
+                </div>
+                <div class="email-div">
+                    <label for="formemail">email</label>
+                    <input type="text" [required]="true" [(ngModel)]="paymentform.formemail" name="formemail">
+                </div>
+            </div>
+            <div class="form-foot">
+                <img src="./assets/img/pay-methods-logo.png" alt="payment-img">
+                <button type="button" class="btn btn-primary">Pay ₹399.00</button>
+            </div>    
+        </form>
+    </div>
+</div>
